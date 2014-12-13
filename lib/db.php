@@ -1,5 +1,5 @@
 <?php
-require_once( '../config/config.php' );
+require_once( 'config.php' );
 
 class DB {
 	static $conn;
@@ -9,6 +9,9 @@ class DB {
 			return;
 
 		self::$conn = mysqli_connect( HOST, USER, PASS, DB );
+		if ( mysqli_connect_errno( self::$conn ) ) {
+			$this->error( mysqli_error( self::$conn ) );
+		}
 	}
 
 	function query( $sql ) {
@@ -34,7 +37,8 @@ class DB {
 		// todo
 	}
 
-	function error() {
+	function error( $error ) {
 		// todo
+		die( $error );
 	}
 }
