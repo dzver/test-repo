@@ -4,4 +4,6 @@
 include 'lib/db.php';
 
 $db = new DB();
-echo $db->query( "INSERT INTO gifts (name) VALUES('ku')" );
+//$db->query( "INSERT INTO gifts (name) VALUES('ku')" );
+
+echo $_GET['url'];

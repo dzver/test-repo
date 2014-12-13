@@ -1,2 +1,4 @@
 RewriteEngine On
-RewriteRule ^hello-world/$  index.php?hello=world [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$  index.php?url=$1 [L]
